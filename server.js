@@ -9,13 +9,13 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb+srv://admin:admin@cluster0.dabjm.mongodb.net/?retryWrites=true&w=majority";
-let db
+let db;
 MongoClient.connect(url, (err, client) => {
-    if (err){
-        console.log(err)
-    }
-    db = client.db()
-})
+  if (err) {
+    console.log(err);
+  }
+  db = client.db("Lessons");
+});
 
 app.use(express.json())
 app.use(cors());
