@@ -59,12 +59,12 @@ app.post("/collection/:collectionName", (req, res, next) => {
 // update lesson spaces
 app.put('/collection/:collectionName', (req, res, next) => {
     req.body.forEach((item) => {
-        let filter = { _id: new ObjectID(item.id) }
-        let new_value = { $set: {spaces: item.spaces} }
-        let options = { safe: true, multi: false }
-        req.collection.updateOne(filter, new_value, options, (err, result) => {
-            if (err) return next(err)
-        })
+      let filter = { _id: new ObjectID(item.id) };
+      let new_value = { $set: { spaces: item.spaces } };
+      let options = { safe: true, multi: false };
+      req.collection.updateOne(filter, new_value, options, (err, result) => {
+        if (err) return next(err);
+      });
     });
     res.send({msg: "spaces successfully updated"})
 })
